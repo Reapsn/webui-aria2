@@ -100,6 +100,8 @@ function(
 			}
 			rpc.once(method, [d.gid], cb);
 
+            scope.remove_in_server(d);
+
 			var lists = [scope.active, scope.waiting, scope.stopped], ind = -1, i;
 			for (var i = 0; i < lists.length; ++i) {
 				var list = lists[i];
@@ -112,6 +114,16 @@ function(
 			}
 		}, 0);
 	}
+
+	// delete downloaded files or downloading files by webdav_del
+    scope.remove_in_server = function(d) {
+		if (d.files.length > 1) {
+            webdav_del(scope.getDirectURL() + d.name + "/");
+        } else {
+            webdav_del(scope.getDirectURL() + d.name);
+		}
+        webdav_del(scope.getDirectURL() + d.name + ".aria2");
+    }
 
 	// start filling in the model of active,
 	// waiting and stopped download

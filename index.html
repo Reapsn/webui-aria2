@@ -88,6 +88,10 @@
   <script src="js/translate/it_IT.js"></script>
   <script src="js/translate/tr_TR.js"></script>
   <script src="js/translate/cs_CZ.js"></script>
+  
+  <!-- webdav operate -->
+  <script src="js/webdav/webdav.js"></script>
+  
 </head>
 <!-- }}} -->
 
@@ -112,6 +116,13 @@
       </div>
     </form>
 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input id="webdav_opt_input" class="form-control" type="text" placeholder="uri" />
+        <button class="form-control" value="ok" onclick="webdav_del(document.getElementById('webdav_opt_input').value)" > del </button>
+      </div>
+    </form>
+    
     <!-- {{{ Nav menu -->
     <div class="collapse navbar-collapse" collapse="collapsed">
       <ul class="nav navbar-nav">
