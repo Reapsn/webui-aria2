@@ -9,7 +9,7 @@ function webdav_del(uri) {
        url: uri,
        async: false,
        error: function(msg){
-           if (404 == msg.staus) {
+           if (404 == msg.status) {
                // ignore 404
                return;
            }
