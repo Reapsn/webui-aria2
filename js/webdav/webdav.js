@@ -9,7 +9,7 @@ function webdav_del(uri) {
        url: uri,
        async: false,
        error: function(msg){
-           alter(msg + "\r\nfailing delete uri:" + uri);
+           alert("delete failed, uri: " + uri + "\r\n" + msg);
        },
     });
 }
