@@ -6,7 +6,7 @@ angular
 .constant('$authconf', {           // default authentication configuration, never fill it in case the webui is hosted in public IP as it can be compromised
   host: location.protocol.startsWith('http') ? location.hostname : 'localhost',
   path: '/jsonrpc',
-  port: '' == location.port ? (location.protocol.startsWith('https' ? 443 : 80) : location.port,
+  port: '' == location.port ? (location.protocol.startsWith('https') ? 443 : 80) : location.port,
   encrypt: location.protocol.startsWith('https'),
   auth: {                          // either add the token field or the user and pass field, not both.
   // token: '$YOUR_SECRET_TOKEN$'
@@ -14,7 +14,7 @@ angular
   // user: '*YOUR_USERNAME*',
   // pass: '*YOUR_SECRET_PASS*'
   },
-  directURL: ''                   // If supplied, links will be created to enable direct download from the aria2 server, requires appropriate webserver to be configured
+  directURL: 'downloads/'                   // If supplied, links will be created to enable direct download from the aria2 server, requires appropriate webserver to be configured
 })
 .constant('$enable', {
 
